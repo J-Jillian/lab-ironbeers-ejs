@@ -1,3 +1,4 @@
+const { error } = require('console');
 const express = require('express');
 const expressLayouts = require('express-ejs-layouts');
 
@@ -15,8 +16,35 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // Add the route handlers here:
 
+
+
 app.get('/', (req, res) => {
   res.render('index');
 });
+
+app.get('/beers', (req, res) => {
+punkAPI.getBeers()
+.then((
+  beerFromApi
+  
+)=> {
+  console.log(beerFromApi)
+  res.render('beers', {beerFromApi});
+  
+})
+
+  
+})
+
+
+
+
+
+
+
+app.get('/randombeer', (req, res) => {
+  res.render('randombeer');
+});
+
 
 app.listen(3000, () => console.log('🏃‍ on port 3000'));
